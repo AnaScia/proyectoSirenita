@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../sirenita.css" />
+    <link rel="stylesheet" href="../normalize.css/" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="titulo">La sirenita 2</h1>
+    <nav class="nav">
+      <h2 class="nav__h2"><a href="../index.html">Inicio</a></h2>
+      <h2 class="nav__h2"><a href="../historia/historia.html">Historia</a></h2>
+    </nav>
+
+    <form id="div1">
+      <p class="div1__p">Selecciona tu personaje favorito de la sirenita 2</p>
+      <img src="../img/lasirenita2.webp" id="imgSirenita" /><br />
+
+      <label for="melody">Melody</label>
+      <input type="radio" name="personaje" id="melody" value="melody" />
+
+      <label for="ariel">Ariel</label>
+      <input type="radio" name="personaje" id="ariel" value="ariel" />
+
+      <label for="morgana"> Morgana</label>
+      <input type="radio" name="personaje" id="morgana" value="morgana" />
+
+      <label for="sebastian">Sebastian</label>
+      <input type="radio" name="personaje" id="sebastian" value="sebastian" />
+
+      <p class="div1__p-input">Tu nombre</p>
+      <input type="text" class="div1__input" />
+      <p class="div1__p-input">Tu apellido</p>
+      <input type="text" class="div1__input" />
+      <p class="div1__p-input">Tu email</p>
+      <input type="email" class="div1__input" />
+      <p class="div1__p-input">Opinion sobre la pelicula</p>
+
+      <textarea name="opinion" rows="5" cols="50">
+Escribe aquí tu opinion sobre la pelicula: </textarea
+      >
+      <input type="submit" value="Enviar" class="div1__input" />
+    </form>
+  </body>
+  <script src="./contacto.js"></script>
+</html>
