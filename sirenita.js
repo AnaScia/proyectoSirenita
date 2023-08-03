@@ -113,12 +113,6 @@ function validacionDelForm() {
     sexo: input2.value,
     actor: input3.value,
     especie: input4.value,
-    // input0.value,
-    // "./img/personaje.png",
-    // input1.value,
-    // input2.value,
-    // input3.value,
-    // input4.value,
   };
   personajesSirenita(inputs);
 }
