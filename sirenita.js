@@ -21,40 +21,33 @@ titulo.addEventListener("click", saludarGenerico);
 // // }
 
 //funcion con desestructuracion
-function personajesSirenita({
-  nombreID,
-  url = "./img/melody.jpeg",
-  nombre,
-  sexo,
-  actor,
-  especie,
-}) {
+function personajesSirenita(personaje) {
   let article = document.querySelector(".article__section");
 
   let createDiv = document.createElement("div"); //creamos el nodo hijo nuevo
   article.appendChild(createDiv); //agregamos el nodo hijo nuevo al nodo padre
-  createDiv.setAttribute("id", nombreID);
+  createDiv.setAttribute("id", personaje.nombreID);
   createDiv.setAttribute("class", "personajes");
 
   let img = document.createElement("img");
   createDiv.appendChild(img);
-  img.src = url;
+  img.src = personaje.url;
 
   let createH3 = document.createElement("h3");
   createDiv.appendChild(createH3);
-  createH3.append(nombre);
+  createH3.append(personaje.nombre);
 
   let p1 = document.createElement("p");
   createDiv.appendChild(p1);
-  p1.append("sexo:" + sexo);
+  p1.append("sexo:" + personaje.sexo);
 
   let p3 = document.createElement("p");
   createDiv.appendChild(p3);
-  p3.append("actor:" + actor);
+  p3.append("actor:" + personaje.actor);
 
   let p4 = document.createElement("p");
   createDiv.appendChild(p4);
-  p4.append("especie:" + especie);
+  p4.append("especie:" + personaje.especie);
 
   let botonBorrar = document.createElement("button");
   createDiv.append(botonBorrar);
@@ -67,55 +60,17 @@ function personajesSirenita({
   });
 }
 
-//Creamos la clase
-class Personajes {
-  constructor(nombreID, url, nombre, sexo, actor, especie) {
-    this.nombreID = nombreID;
-    this.url = url;
-    this.nombre = nombre;
-    this.sexo = sexo;
-    this.actor = actor;
-    this.especie = especie;
-  }
-}
+const pedirPers = async () => {
+  const resp = await fetch("/data.json");
+  const data = await resp.json();
+  console.log(resp);
 
-let pers1 = new Personajes(
-  "pj1",
-  "./img/melody.jpeg",
-  "Melody",
-  "Femenino",
-  "Tara Strong",
-  "Humana"
-);
-let pers2 = new Personajes(
-  "pj2",
-  "./img/ariel.jpg",
-  "Ariel",
-  "Femenino",
-  "Jodi Benson",
-  "Sirena"
-);
-let pers3 = new Personajes(
-  "pj3",
-  "./img/morgana.jpg",
-  "Morgana",
-  "Femenino",
-  "Pat Carrol",
-  "Pulpo"
-);
-let pers4 = new Personajes(
-  "pj4",
-  "./img/sebastian.jpg",
-  "Sebastian",
-  "Masculino",
-  "Samuel Wright",
-  "cangrejo"
-);
+  data.forEach((personaje) => {
+    personajesSirenita(personaje);
+  });
+};
 
-personajesSirenita(pers1);
-personajesSirenita(pers2);
-personajesSirenita(pers3);
-personajesSirenita(pers4);
+pedirPers();
 
 //CREACION DE PERSONAJES NUEVOS
 
@@ -126,7 +81,6 @@ personajeNuevo.appendChild(formulario);
 formulario.className = "formulario";
 
 //le agrego inputs con sus atributos al div
-
 function inputs(type, name, value, placeholder) {
   let input = document.createElement("input");
   input.type = type;
@@ -136,6 +90,7 @@ function inputs(type, name, value, placeholder) {
   formulario.appendChild(input);
   return input;
 }
+
 let input0 = inputs("text", "id", "", "id");
 let input1 = inputs("text", "nombre", "", "nombre");
 let input2 = inputs("text", "sexo", "", "sexo");
@@ -151,14 +106,20 @@ boton.className = "boton__agregar";
 
 //creamos un div y agregamos el personaje nuevo al article
 function validacionDelForm() {
-  let inputs = new Personajes(
-    input0.value,
-    "./img/personaje.png",
-    input1.value,
-    input2.value,
-    input3.value,
-    input4.value
-  );
+  let inputs = {
+    nombreID: input0.value,
+    url: "./img/personaje.png",
+    nombre: input1.value,
+    sexo: input2.value,
+    actor: input3.value,
+    especie: input4.value,
+    // input0.value,
+    // "./img/personaje.png",
+    // input1.value,
+    // input2.value,
+    // input3.value,
+    // input4.value,
+  };
   personajesSirenita(inputs);
 }
 

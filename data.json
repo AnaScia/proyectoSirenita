@@ -1,0 +1,34 @@
+[
+  {
+    "nombreID": "pj1",
+    "url": "./img/melody.jpeg",
+    "nombre": "Melody",
+    "sexo": "Femenino",
+    "actor": "Tara Strong",
+    "especie": "Humana"
+  },
+  {
+    "nombreID": "pj2",
+    "url": "./img/ariel.jpg",
+    "nombre": "Ariel",
+    "sexo": "Femenino",
+    "actor": "Jodi Benson",
+    "especie": "Sirena"
+  },
+  {
+    "nombreID": "pj3",
+    "url": "./img/morgana.jpg",
+    "nombre": "Morgana",
+    "sexo": "Femenino",
+    "actor": "Pat Carrol",
+    "especie": "Pulpo"
+  },
+  {
+    "nombreID": "pj4",
+    "url": "./img/sebastian.jpg",
+    "nombre": "Sebastian",
+    "sexo": "Masculino",
+    "actor": "Samuel Wright",
+    "especie": "cangrejo"
+  }
+]
